@@ -28,7 +28,24 @@ const labels: Record<string, string> = Object.fromEntries(
   [...standaardStatusOpties, ...toolStatusOpties].map((optie) => [optie.waarde, optie.label]),
 );
 
-type Regel = { sectie: Sectie; item: Item; status: string | null; notitie: string | null };
+// Kleuraccent per groep, zodat de stapel in één oogopslag te lezen is.
+const accenten: Record<string, string> = {
+  bespreken: 'border-l-paars',
+  vraag: 'border-l-paars',
+  toegang: 'border-l-paars',
+  beslissen: 'border-l-paars',
+  stoppen: 'border-l-grijs-licht',
+  helder: 'border-l-groen',
+  [GEEN_STATUS]: 'border-l-lijn',
+};
+
+type Regel = {
+  sectie: Sectie;
+  item: Item;
+  positie: number;
+  status: string | null;
+  notitie: string | null;
+};
 
 export default function OverzichtPagina() {
   const { reacties, laadstatus } = useReacties();
@@ -38,6 +55,7 @@ export default function OverzichtPagina() {
     .map(({ sectie, item }) => ({
       sectie,
       item,
+      positie: sectie.items.findIndex((punt) => punt.id === item.id) + 1,
       status: reacties[item.id]?.status ?? null,
       notitie: reacties[item.id]?.notitie ?? null,
     }))
@@ -94,15 +112,18 @@ export default function OverzichtPagina() {
     }
   }
 
+  const metNotitie = regels.filter((regel) => regel.notitie?.trim()).length;
+
   return (
     <div>
-      <Link href="/" className="text-sm font-semibold text-grijs hover:text-paars-donker">
+      <Link href="/" className="label text-grijs-licht hover:text-paars-donker">
         ← Alle secties
       </Link>
 
-      <h1 className="mt-4 text-3xl font-bold sm:text-4xl">Overzicht van de reacties</h1>
-      <p className="mt-4 text-[17px] text-grijs">
-        Alle punten waar Roberto een status of een opmerking bij heeft gezet.
+      <h1 className="mt-3 text-4xl font-extrabold sm:text-5xl">Overzicht</h1>
+      <p className="mt-4 max-w-[46ch] text-[17px] text-grijs">
+        Alle punten waar Roberto een keuze of een opmerking bij heeft gezet, op een stapel
+        voor de meeting.
       </p>
 
       <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -110,12 +131,19 @@ export default function OverzichtPagina() {
           type="button"
           onClick={kopieer}
           disabled={laadstatus !== 'klaar' || regels.length === 0}
-          className="rounded-lg bg-paars px-4 py-2 text-sm font-semibold text-white hover:bg-paars-donker disabled:cursor-not-allowed disabled:opacity-40"
+          className="rounded-xl bg-inkt px-5 py-3 text-sm font-semibold text-white hover:bg-paars-diep disabled:cursor-not-allowed disabled:opacity-35"
         >
           Kopieer alles als tekst
         </button>
+        {laadstatus === 'klaar' && regels.length > 0 && (
+          <span className="text-sm text-grijs tabular-nums">
+            {regels.length} {regels.length === 1 ? 'punt' : 'punten'}, {metNotitie} met een
+            opmerking
+          </span>
+        )}
         {gekopieerd === 'ja' && (
-          <span className="text-sm font-semibold text-groen-donker">
+          <span className="flex items-center gap-2 text-sm font-semibold text-groen-donker">
+            <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-groen" />
             Gekopieerd naar het klembord
           </span>
         )}
@@ -126,41 +154,57 @@ export default function OverzichtPagina() {
         )}
       </div>
 
-      {laadstatus === 'laden' && <p className="mt-8 text-grijs">Laden…</p>}
+      {laadstatus === 'laden' && (
+        <div className="kaart mt-8 p-8 text-center text-grijs">Laden…</div>
+      )}
       {laadstatus === 'fout' && (
-        <p className="mt-8 text-grijs">De reacties konden niet geladen worden.</p>
+        <p className="mt-8 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+          De reacties konden niet geladen worden.
+        </p>
       )}
 
       {laadstatus === 'klaar' && regels.length === 0 && (
-        <p className="mt-8 text-grijs">Er zijn nog geen reacties.</p>
+        <div className="kaart mt-8 p-8 text-center text-grijs">
+          Er zijn nog geen reacties.
+        </div>
       )}
 
       {laadstatus === 'klaar' && regels.length > 0 && (
-        <div className="mt-8 space-y-8">
+        <div className="mt-10 space-y-10">
           {volgorde.map((groep) => {
             const inGroep = opGroep.get(groep) ?? [];
             return (
               <section key={groep}>
-                <h2 className="text-xl font-bold">
-                  {groepLabel(groep)}{' '}
-                  <span className="text-base font-semibold text-grijs">({inGroep.length})</span>
-                </h2>
-                <ul className="mt-3 space-y-3">
+                <div className="flex items-center gap-3">
+                  <h2 className="text-2xl font-extrabold">{groepLabel(groep)}</h2>
+                  <span className="h-px flex-1 bg-lijn" />
+                  <span className="text-xs font-semibold text-grijs-licht tabular-nums">
+                    {inGroep.length}
+                  </span>
+                </div>
+
+                <ul className="mt-4 space-y-3">
                   {inGroep.map((regel) => (
                     <li
                       key={regel.item.id}
-                      className="rounded-xl border border-lijn bg-white p-4"
+                      className={`kaart border-l-4 p-4 sm:p-5 ${accenten[groep] ?? 'border-l-lijn'}`}
                     >
-                      <p className="text-xs font-bold tracking-wide text-grijs uppercase">
-                        {regel.sectie.titel}
-                      </p>
+                      <div className="flex flex-wrap items-baseline justify-between gap-x-3">
+                        <p className="label">{regel.sectie.titel}</p>
+                        <Link
+                          href={`/sectie/${regel.sectie.id}?punt=${regel.positie}`}
+                          className="text-xs font-semibold text-paars-donker hover:underline"
+                        >
+                          Naar het punt →
+                        </Link>
+                      </div>
                       <p className="mt-1 font-bold">{regel.item.titel}</p>
                       {regel.notitie?.trim() ? (
-                        <p className="mt-2 border-l-2 border-paars pl-3 text-[15px] whitespace-pre-line">
+                        <p className="mt-2.5 border-l-2 border-lijn pl-3 text-[15.5px] whitespace-pre-line">
                           {regel.notitie.trim()}
                         </p>
                       ) : (
-                        <p className="mt-2 text-[15px] text-grijs">Geen opmerking</p>
+                        <p className="mt-2 text-sm text-grijs-licht">Geen opmerking</p>
                       )}
                     </li>
                   ))}
