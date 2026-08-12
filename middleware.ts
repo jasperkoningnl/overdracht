@@ -31,5 +31,7 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
+  // De fonts staan er bewust buiten: die verraden niets en moeten ook op het
+  // toegangsscherm laden, waar nog geen cookie is.
+  matcher: ['/((?!_next/static|_next/image|favicon.ico|fonts/).*)'],
 };

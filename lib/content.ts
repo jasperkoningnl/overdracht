@@ -491,6 +491,16 @@ export function volgendeSectie(id: string): Sectie | undefined {
   return secties[index + 1];
 }
 
+export function vorigeSectie(id: string): Sectie | undefined {
+  const index = secties.findIndex((sectie) => sectie.id === id);
+  if (index <= 0) return undefined;
+  return secties[index - 1];
+}
+
+export function sectieNummer(id: string): number {
+  return secties.findIndex((sectie) => sectie.id === id);
+}
+
 export function opties(item: Item): StatusOptie[] {
   return item.statusOpties ?? standaardStatusOpties;
 }

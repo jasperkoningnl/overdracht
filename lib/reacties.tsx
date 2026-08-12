@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useState } from 'react';
 
 export type Reactie = {
   status: string | null;
@@ -22,8 +22,17 @@ export function heeftInhoud(reactie: Reactie | undefined): boolean {
   return Boolean(reactie.status) || Boolean(reactie.notitie && reactie.notitie.trim());
 }
 
-// Haalt alle reacties in één keer op. Voor deze omvang is dat ruim genoeg.
-export function useReacties() {
+type Waarde = {
+  reacties: Reacties;
+  laadstatus: Laadstatus;
+  werkBij: (itemId: string, reactie: Reactie) => void;
+};
+
+const ReactiesContext = createContext<Waarde | null>(null);
+
+// Alle reacties worden één keer opgehaald, bovenaan de deck, en daarna
+// gedeeld met de kop en alle slides.
+export function ReactiesProvider({ children }: { children: React.ReactNode }) {
   const [reacties, setReacties] = useState<Reacties>({});
   const [laadstatus, setLaadstatus] = useState<Laadstatus>('laden');
 
@@ -59,5 +68,15 @@ export function useReacties() {
     setReacties((vorig) => ({ ...vorig, [itemId]: reactie }));
   }, []);
 
-  return { reacties, laadstatus, werkBij };
+  return (
+    <ReactiesContext.Provider value={{ reacties, laadstatus, werkBij }}>
+      {children}
+    </ReactiesContext.Provider>
+  );
+}
+
+export function useReacties(): Waarde {
+  const waarde = useContext(ReactiesContext);
+  if (!waarde) throw new Error('useReacties heeft een ReactiesProvider nodig');
+  return waarde;
 }

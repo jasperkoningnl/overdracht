@@ -22,6 +22,16 @@ Deze staan in Vercel:
 | `CODE_LEZER`   | Toegangscode voor Roberto                                 |
 | `CODE_BEHEER`  | Toegangscode voor Jasper, geeft ook toegang tot /overzicht |
 
+## Vormgeving
+
+Eén deck van slides: een omslag, per sectie een titelslide en daarna één punt
+per scherm. Links het kleurvlak van de sectie met de titel, de gekozen status en
+de betrokkenen; rechts de stand van zaken, de uitklapbare panelen en het
+keuzeblok. Pijltoetsen lopen door de deck, 1, 2 en 3 kiezen een status.
+
+Het font is Archivo, zelf gehost in `public/fonts` zodat de build niets hoeft te
+downloaden. Elke sectie heeft een eigen kleurvlak, zie `lib/kleuren.ts`.
+
 ## Schermen
 
 | Route          | Wat je ziet                                                            |

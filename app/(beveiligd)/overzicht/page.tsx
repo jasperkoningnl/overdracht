@@ -11,8 +11,8 @@ import {
 } from '@/lib/content';
 import { heeftInhoud, useReacties } from '@/lib/reacties';
 
-// Volgorde van de groepen: eerst wat besproken moet worden, dan de vragen,
-// daarna de toolkeuzes, en helemaal onderaan wat helder is.
+// Eerst wat besproken moet worden, dan de vragen, daarna de toolkeuzes, en
+// helemaal onderaan wat helder is.
 const groepen = [
   'bespreken',
   'vraag',
@@ -28,15 +28,14 @@ const labels: Record<string, string> = Object.fromEntries(
   [...standaardStatusOpties, ...toolStatusOpties].map((optie) => [optie.waarde, optie.label]),
 );
 
-// Kleuraccent per groep, zodat de stapel in één oogopslag te lezen is.
-const accenten: Record<string, string> = {
-  bespreken: 'border-l-paars',
-  vraag: 'border-l-paars',
-  toegang: 'border-l-paars',
-  beslissen: 'border-l-paars',
-  stoppen: 'border-l-grijs-licht',
-  helder: 'border-l-groen',
-  [GEEN_STATUS]: 'border-l-lijn',
+const strepen: Record<string, string> = {
+  bespreken: '#7a3fd0',
+  vraag: '#a163f7',
+  toegang: '#924cf6',
+  beslissen: '#2f2a45',
+  stoppen: '#cfc9c2',
+  helder: '#02d5a6',
+  [GEEN_STATUS]: '#e6e2dd',
 };
 
 type Regel = {
@@ -83,7 +82,7 @@ export default function OverzichtPagina() {
   }
 
   function alsTekst(): string {
-    const stukken: string[] = ['Reacties Roberto op de overdracht', ''];
+    const stukken: string[] = ['Reacties op de overdracht Brainwash', ''];
 
     for (const groep of volgorde) {
       const inGroep = opGroep.get(groep) ?? [];
@@ -92,9 +91,7 @@ export default function OverzichtPagina() {
         stukken.push(`- [${regel.sectie.titel}] ${regel.item.titel}`);
         const notitie = regel.notitie?.trim();
         if (notitie) {
-          for (const lijn of notitie.split('\n')) {
-            stukken.push(`  ${lijn}`);
-          }
+          for (const lijn of notitie.split('\n')) stukken.push(`  ${lijn}`);
         }
       }
       stukken.push('');
@@ -115,105 +112,91 @@ export default function OverzichtPagina() {
   const metNotitie = regels.filter((regel) => regel.notitie?.trim()).length;
 
   return (
-    <div>
-      <Link href="/" className="label text-grijs-licht hover:text-paars-donker">
-        ← Alle secties
-      </Link>
+    <div className="dia flex min-h-0 flex-1 flex-col gap-7 overflow-y-auto bg-papier px-6 py-12 sm:px-10 lg:h-[calc(100vh-58px)] lg:px-20">
+      <div className="flex flex-wrap items-end justify-between gap-5">
+        <div>
+          <p className="label-groot text-paars-donker">Slot</p>
+          <h1 className="mt-3 text-[clamp(28px,3.4vw,52px)]">Overzicht van de reacties</h1>
+          <p className="mt-3.5 max-w-[56ch] text-[17px] text-grijs">
+            {regels.length > 0
+              ? 'Alles waar Roberto een status of opmerking bij heeft gezet, gegroepeerd. Klaar om mee te nemen naar de meeting.'
+              : 'Nog niets ingevuld. Zodra Roberto punten beoordeelt, staan ze hier.'}
+          </p>
+          {laadstatus === 'klaar' && regels.length > 0 && (
+            <p className="mt-2 text-sm text-grijs tabular-nums">
+              {regels.length} {regels.length === 1 ? 'punt' : 'punten'}, {metNotitie} met
+              een opmerking
+            </p>
+          )}
+        </div>
 
-      <h1 className="mt-3 text-4xl font-extrabold sm:text-5xl">Overzicht</h1>
-      <p className="mt-4 max-w-[46ch] text-[17px] text-grijs">
-        Alle punten waar Roberto een keuze of een opmerking bij heeft gezet, op een stapel
-        voor de meeting.
-      </p>
-
-      <div className="mt-6 flex flex-wrap items-center gap-3">
-        <button
-          type="button"
-          onClick={kopieer}
-          disabled={laadstatus !== 'klaar' || regels.length === 0}
-          className="rounded-xl bg-inkt px-5 py-3 text-sm font-semibold text-white hover:bg-paars-diep disabled:cursor-not-allowed disabled:opacity-35"
-        >
-          Kopieer alles als tekst
-        </button>
-        {laadstatus === 'klaar' && regels.length > 0 && (
-          <span className="text-sm text-grijs tabular-nums">
-            {regels.length} {regels.length === 1 ? 'punt' : 'punten'}, {metNotitie} met een
-            opmerking
-          </span>
-        )}
-        {gekopieerd === 'ja' && (
-          <span className="flex items-center gap-2 text-sm font-semibold text-groen-donker">
-            <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-groen" />
-            Gekopieerd naar het klembord
-          </span>
-        )}
-        {gekopieerd === 'fout' && (
-          <span className="text-sm font-semibold text-red-600">
-            Kopiëren lukte niet, selecteer de tekst hieronder handmatig
-          </span>
-        )}
+        <div className="flex flex-wrap items-center gap-3">
+          <button
+            type="button"
+            onClick={kopieer}
+            disabled={laadstatus !== 'klaar' || regels.length === 0}
+            className="rounded-[10px] bg-paars px-5 py-3.5 text-[15px] font-bold text-white hover:bg-paars-donker disabled:cursor-not-allowed disabled:opacity-35"
+          >
+            {gekopieerd === 'ja' ? 'Gekopieerd' : 'Kopieer alles als tekst'}
+          </button>
+          {gekopieerd === 'fout' && (
+            <span className="text-sm font-semibold text-red-600">
+              Kopiëren lukte niet, selecteer de tekst hieronder
+            </span>
+          )}
+        </div>
       </div>
 
-      {laadstatus === 'laden' && (
-        <div className="kaart mt-8 p-8 text-center text-grijs">Laden…</div>
-      )}
+      {laadstatus === 'laden' && <p className="text-grijs">Laden…</p>}
       {laadstatus === 'fout' && (
-        <p className="mt-8 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+        <p className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
           De reacties konden niet geladen worden.
         </p>
       )}
 
-      {laadstatus === 'klaar' && regels.length === 0 && (
-        <div className="kaart mt-8 p-8 text-center text-grijs">
-          Er zijn nog geen reacties.
-        </div>
-      )}
-
-      {laadstatus === 'klaar' && regels.length > 0 && (
-        <div className="mt-10 space-y-10">
-          {volgorde.map((groep) => {
-            const inGroep = opGroep.get(groep) ?? [];
-            return (
-              <section key={groep}>
-                <div className="flex items-center gap-3">
-                  <h2 className="text-2xl font-extrabold">{groepLabel(groep)}</h2>
-                  <span className="h-px flex-1 bg-lijn" />
-                  <span className="text-xs font-semibold text-grijs-licht tabular-nums">
-                    {inGroep.length}
-                  </span>
-                </div>
-
-                <ul className="mt-4 space-y-3">
-                  {inGroep.map((regel) => (
-                    <li
-                      key={regel.item.id}
-                      className={`kaart border-l-4 p-4 sm:p-5 ${accenten[groep] ?? 'border-l-lijn'}`}
+      {volgorde.map((groep) => {
+        const inGroep = opGroep.get(groep) ?? [];
+        return (
+          <section key={groep}>
+            <h2 className="text-[22px]">
+              {groepLabel(groep)}{' '}
+              <span className="font-semibold text-grijs">({inGroep.length})</span>
+            </h2>
+            <ul className="mt-3.5 grid gap-3.5 sm:grid-cols-[repeat(auto-fill,minmax(320px,1fr))]">
+              {inGroep.map((regel) => (
+                <li
+                  key={regel.item.id}
+                  className="rounded-[14px] border border-lijn bg-white p-4.5"
+                  style={{ borderLeft: `4px solid ${strepen[groep] ?? '#e6e2dd'}` }}
+                >
+                  <div className="flex items-baseline justify-between gap-3">
+                    <p className="label text-grijs">{regel.sectie.titel}</p>
+                    <Link
+                      href={`/sectie/${regel.sectie.id}?punt=${regel.positie}`}
+                      className="shrink-0 text-xs font-bold text-paars-donker hover:underline"
                     >
-                      <div className="flex flex-wrap items-baseline justify-between gap-x-3">
-                        <p className="label">{regel.sectie.titel}</p>
-                        <Link
-                          href={`/sectie/${regel.sectie.id}?punt=${regel.positie}`}
-                          className="text-xs font-semibold text-paars-donker hover:underline"
-                        >
-                          Naar het punt →
-                        </Link>
-                      </div>
-                      <p className="mt-1 font-bold">{regel.item.titel}</p>
-                      {regel.notitie?.trim() ? (
-                        <p className="mt-2.5 border-l-2 border-lijn pl-3 text-[15.5px] whitespace-pre-line">
-                          {regel.notitie.trim()}
-                        </p>
-                      ) : (
-                        <p className="mt-2 text-sm text-grijs-licht">Geen opmerking</p>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            );
-          })}
-        </div>
-      )}
+                      Naar het punt →
+                    </Link>
+                  </div>
+                  <p className="mt-1.5 text-[17px] font-bold">{regel.item.titel}</p>
+                  <p className="mt-2.5 border-l-2 border-paars pl-3 text-[15px] whitespace-pre-line text-inkt-zacht">
+                    {regel.notitie?.trim() || 'Geen opmerking'}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </section>
+        );
+      })}
+
+      <div className="mt-auto flex flex-wrap gap-3 pt-4">
+        <Link
+          href="/"
+          className="rounded-full border border-lijn bg-white px-6 py-3 text-[15px] font-bold text-inkt hover:border-paars"
+        >
+          Terug naar het begin
+        </Link>
+      </div>
     </div>
   );
 }

@@ -2,27 +2,24 @@
 
 import { Suspense } from 'react';
 import { notFound, useParams, useSearchParams } from 'next/navigation';
-import Slideshow from '@/components/Slideshow';
-import { vindSectie, volgendeSectie } from '@/lib/content';
-import { useReacties } from '@/lib/reacties';
+import SectieDek from '@/components/SectieDek';
+import { sectieNummer, vindSectie, volgendeSectie, vorigeSectie } from '@/lib/content';
 
 function Sectie() {
   const params = useParams<{ id: string }>();
   const zoek = useSearchParams();
   const sectie = vindSectie(params.id);
-  const { reacties, laadstatus, werkBij } = useReacties();
 
   if (!sectie) notFound();
 
   const punt = Number(zoek.get('punt'));
 
   return (
-    <Slideshow
+    <SectieDek
       sectie={sectie}
+      nummer={sectieNummer(sectie.id)}
       volgende={volgendeSectie(sectie.id)}
-      reacties={reacties}
-      laadstatus={laadstatus}
-      werkBij={werkBij}
+      vorige={vorigeSectie(sectie.id)}
       startPunt={Number.isInteger(punt) && punt > 0 ? punt : undefined}
     />
   );
@@ -30,7 +27,13 @@ function Sectie() {
 
 export default function SectiePagina() {
   return (
-    <Suspense fallback={<div className="kaart p-8 text-center text-grijs">Laden…</div>}>
+    <Suspense
+      fallback={
+        <div className="flex flex-1 items-center justify-center p-10 text-grijs">
+          Laden…
+        </div>
+      }
+    >
       <Sectie />
     </Suspense>
   );
