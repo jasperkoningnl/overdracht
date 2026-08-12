@@ -78,7 +78,7 @@ export const secties: Sectie[] = [
         ],
         betrokkenen: [
           'Syb Faes, presentatie',
-          'Yonah Sint-Nicolaas, research',
+          'Yonah Sint Nicolaas, research',
           'Annie Manueke, draaien, regie en montage',
           'Bibi van Troost, productie',
         ],
@@ -163,7 +163,7 @@ export const secties: Sectie[] = [
           'Roel Meijvis maakt een essay over Byung-Chul Han, Sabrine Ingabire over bell hooks.',
           'Beiden schrijven nu aan hun script. De contracten met hen zijn geregeld.',
           'Draaidata staan voorlopig op 16 september (Roel Meijvis) en 30 september (Sabrine Ingabire). Roel schuift mogelijk naar 23 september.',
-          'Als beide draaidagen verschuiven naar 23 en 30 september, kan Ineke van den Hurk beide draaien. Dat heeft de voorkeur. Anders moet Annie de eerste draaien.',
+          'Als beide draaidagen verschuiven naar 23 en 30 september, kan Ineke van der Hurk beide draaien. Dat heeft de voorkeur. Anders moet Annie de eerste draaien.',
           'Komt uit het Brainwash-budget.',
         ],
         openstaand: [
@@ -186,7 +186,7 @@ export const secties: Sectie[] = [
     items: [
       {
         id: 'ineke-van-den-hurk',
-        titel: 'Ineke van den Hurk, videoredacteur',
+        titel: 'Ineke van der Hurk, videoredacteur',
         status: [
           'Trouwt in september en heeft dan een week vakantie.',
           'Is recent veel ingezet op Pride.',
@@ -200,7 +200,7 @@ export const secties: Sectie[] = [
       },
       {
         id: 'annie-manueke',
-        titel: 'Annie Manueke',
+        titel: 'Annie Manueke, videoredacteur',
         status: [
           'Werkt nu aan diep!. Allround: draaien, montage en kleurcorrectie.',
           'Contract loopt af eind december.',
@@ -212,7 +212,7 @@ export const secties: Sectie[] = [
       },
       {
         id: 'sofie-bongers',
-        titel: 'Sofie Bongers',
+        titel: 'Sofie Bongers, redacteur',
         status: [
           'Nu uitbesteed aan het programma Wat blijft.',
           'Betrokken bij Door Lena’s bril en bij Hindsights.',
@@ -223,7 +223,7 @@ export const secties: Sectie[] = [
       },
       {
         id: 'sasu',
-        titel: 'Sasu',
+        titel: 'Sasu Aghafua, redacteur',
         status: [
           'Nu uitbesteed aan Pride.',
           'Zou per september gaan studeren en een dag minder werken. Dat is teruggedraaid.',
@@ -235,7 +235,7 @@ export const secties: Sectie[] = [
       },
       {
         id: 'wilma',
-        titel: 'Wilma, producer',
+        titel: 'Wilma Verbeek, producer',
         status: [
           'Producer van Brainwash tot eind december, stopt in de praktijk waarschijnlijk al ergens in november.',
           'Kan Hindsights en het festival nog helemaal afronden.',
@@ -247,7 +247,7 @@ export const secties: Sectie[] = [
       },
       {
         id: 'yonah-sint-nicolaas',
-        titel: 'Yonah Sint-Nicolaas',
+        titel: 'Yonah Sint Nicolaas, redacteur',
         status: [
           'Werkt voor Het Filosofisch Kwintet, maar is vanuit die functie ook bij Brainwash betrokken.',
           'Neemt af en toe de nieuwsbrief over vanuit HFK.',
@@ -256,7 +256,7 @@ export const secties: Sectie[] = [
       },
       {
         id: 'bibi-van-troost',
-        titel: 'Bibi van Troost',
+        titel: 'Bibi van Troost, producer',
         status: ['Doet alleen de productie van diep!.'],
       },
       {
