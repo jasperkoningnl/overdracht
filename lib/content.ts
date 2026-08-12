@@ -72,7 +72,7 @@ export const secties: Sectie[] = [
         status: [
           'Scripts voor de eerste vier afleveringen zijn bijna af.',
           'Draaidagen staan gepland in augustus.',
-          'Publicatie: 13 september schoonheid, daarna elke twee weken tijd, nostalgie en gokken. Afgeleide data: 27 september, 11 oktober, 25 oktober. Nog verifiëren.',
+          'Publicatie: 13 september schoonheid, daarna elke twee weken tijd, nostalgie en gokken. Data: 27 september, 11 oktober, 25 oktober.',
           'Afspraak met Thijs Molenberg (Online): één promovideo vooraf en vier fragmenten per essay, samen zestien contactmomenten gedurende de looptijd.',
           'Eigen inschrijving en eigen budget.',
         ],
@@ -160,9 +160,9 @@ export const secties: Sectie[] = [
         titel: 'denkbeeld!',
         status: [
           'Visuele essays over denkers, volgens een redelijk vast format.',
-          'Roel Meijvis maakt een essay over Byung-Chul Han, Sabrine Ingabire over bell hooks. Naam nog verifiëren.',
+          'Roel Meijvis maakt een essay over Byung-Chul Han, Sabrine Ingabire over bell hooks.',
           'Beiden schrijven nu aan hun script. De contracten met hen zijn geregeld.',
-          'Draaidata staan voorlopig op 16 september (Roel Meijvis) en 30 september (Ingabire). Roel schuift mogelijk naar 23 september.',
+          'Draaidata staan voorlopig op 16 september (Roel Meijvis) en 30 september (Sabrine Ingabire). Roel schuift mogelijk naar 23 september.',
           'Als beide draaidagen verschuiven naar 23 en 30 september, kan Ineke van den Hurk beide draaien. Dat heeft de voorkeur. Anders moet Annie de eerste draaien.',
           'Komt uit het Brainwash-budget.',
         ],
@@ -172,7 +172,7 @@ export const secties: Sectie[] = [
         ],
         meer: [
           'Het format: een Nederlandstalige pleitbezorger presenteert op camera een denker die een groter publiek verdient. Niet de denker zelf staat centraal maar het pleidooi van iemand die zijn of haar werk goed kent en het kan vertalen naar een breed publiek.',
-          'Roel Meijvis doet Byung-Chul Han, Ingabire doet bell hooks.',
+          'Roel Meijvis doet Byung-Chul Han, Sabrine Ingabire doet bell hooks.',
           'Aandachtspunten uit de scriptbegeleiding tot nu toe: het essay moet rond de twintig minuten spreektijd blijven, en kritiek op de denker hoort in één afgebakend blok in plaats van verspreid als losse voorbehouden door het hele stuk.',
         ].join('\n\n'),
       },
@@ -421,34 +421,37 @@ export type TijdlijnMaand = {
 export const tijdlijn: TijdlijnMaand[] = [
   {
     maand: 'Augustus',
-    punten: ['Draaidagen diep!, vier afleveringen'],
+    punten: [
+      'Draaidagen diep!, vier afleveringen',
+      'Week van 17 augustus: kick-off Door Lena’s bril, exacte dag nog niet bekend',
+    ],
   },
   {
     maand: 'September',
     punten: [
-      'Begin september: startmeeting Brainwash Hindsights',
+      'Begin september: startmeeting Brainwash Hindsights met Roberto, Julia, Bono, Vanessa, Shula en Sofie, datum nog te plannen',
       'Begin september: Jasper kan nog meekijken bij de montage van diep!',
       'September: Ineke trouwt en heeft een week vakantie',
       '13 september: publicatie diep! over schoonheid',
       '16 september: draaidag denkbeeld! met Roel Meijvis, schuift mogelijk naar 23 september',
-      '27 september: publicatie diep! over tijd (afgeleid, verifiëren)',
-      '30 september: draaidag denkbeeld! met Ingabire',
-      'Kick-off Door Lena’s bril, datum [nog invullen]',
+      '27 september: publicatie diep! over tijd',
+      '30 september: draaidag denkbeeld! met Sabrine Ingabire',
     ],
   },
   {
     maand: 'Oktober',
     punten: [
-      '11 oktober: publicatie diep! over nostalgie (afgeleid, verifiëren)',
+      '11 oktober: publicatie diep! over nostalgie',
       'Uiterlijk oktober: besluit over het contract van Annie',
-      '25 oktober: publicatie diep! over gokken (afgeleid, verifiëren)',
-      'Brainwash Festival, datum [nog invullen], met opname HFK aan de vooravond',
-      'Een tot twee weken na het festival: publicatie Hindsights, acht afleveringen in twee weken',
+      '25 oktober: publicatie diep! over gokken',
+      '30 oktober: opname Het Filosofisch Kwintet aan de vooravond van het festival, datum afgeleid, verifiëren',
+      '31 oktober en 1 november: Brainwash Festival, opnames Hindsights',
     ],
   },
   {
     maand: 'November',
     punten: [
+      'Een tot twee weken na het festival: publicatie Hindsights, acht afleveringen in twee weken',
       'Wilma stopt in de praktijk',
       'Mogelijke doorstart diep! met nieuwe afleveringen, mits tijdig besloten en budget beschikbaar',
     ],
