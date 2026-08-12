@@ -13,7 +13,9 @@ export type Item = {
   status?: string[]; // regels met feiten en stand van zaken
   betrokkenen?: string[]; // wie zit erop, en in welke rol
   vanRoberto?: string[]; // wat er van hem verwacht wordt, met termijn
-  meer?: string; // langere toelichting, standaard ingeklapt
+  meer?: string; // langere toelichting, standaard ingeklapt achter "Meer details".
+  // Meerdere alinea's? Zet ze als losse regels in een array en sluit af met
+  // .join('\n\n'), dan komt er een witregel tussen.
   statusOpties?: StatusOptie[]; // afwijkende opties, anders de standaardset
 };
 
@@ -84,6 +86,10 @@ export const secties: Sectie[] = [
           'Jasper hoopt de eerste montage van de aflevering over schoonheid nog te zien. Daarna neemt Roberto over. Waar nodig kan Jasper begin september nog meekijken.',
           'Na deze vier afleveringen evalueren en besluiten of de reeks doorgaat. Als dat snel besloten wordt, kan er aansluitend in november doorgestart worden met nieuwe afleveringen. Wel eerst het budget checken.',
         ],
+        meer: [
+          'Afspraak met Thijs Molenberg (Online) over de uitrol op social. Voorafgaand aan de reeks komt er één promovideo. Per essay komen er vier fragmenten die verspreid over de twee weken tussen twee publicaties worden gepost. Zo blijft er gedurende de hele looptijd contact met het publiek in plaats van alleen een piek op de publicatiedag.',
+          'Syb Faes heeft zelf een document met social-ideeën gemaakt (bijgewerkt 7 augustus). Dat is het startpunt voor de invulling van de fragmenten.',
+        ].join('\n\n'),
       },
       {
         id: 'door-lenas-bril',
@@ -93,7 +99,7 @@ export const secties: Sectie[] = [
           'Opzet: wekelijkse podcast, meer op de actualiteit, wordt ook gefilmd en op YouTube gezet.',
           'Lena Bril niet als interviewer maar als gesprekspartner.',
           'Nog geen startdatum, wel het streven om dit jaar nog te starten.',
-          'Komt uit de Brainwash-begroting, is door producer Wilma ingebrogd.',
+          'Komt uit de Brainwash-begroting, is door producer Wilma inbegroot.',
           'Kick-off meeting staat gepland.',
           'Moet verder ingevuld worden.',
         ],
@@ -129,6 +135,12 @@ export const secties: Sectie[] = [
           'Bepalen wie de video-opname en videomontage doet: Ineke of Annie.',
           'Bepalen wie de redactie draait: Sofie of Sasu.',
         ],
+        meer: [
+          'Het format draait om één vaste vraag: de gast brengt zelf een plek in die een rol heeft gespeeld in zijn of haar leven of werk, en die plek is het startpunt van het gesprek.',
+          'Bij het uitnodigen is de briefing belangrijker dan de vraag zelf. Een gast die alleen een plek noemt levert een beschouwing op; een gast die een concrete herinnering of scène bij die plek meebrengt levert een aflevering op. Vraag dus expliciet om die herinnering.',
+          'De podcast is tweetalig, omdat er ook internationale gasten aanschuiven. Dat is een van de redenen voor de keuze van Shula Tas en Vanessa Ackah.',
+          'De redactie bereidt per gast twee of drie verbindingen voor tussen de plek en het werk van die gast. Daarmee ligt het zwaarste interpretatiewerk bij de voorbereiding en niet bij het live gesprek.',
+        ].join('\n\n'),
       },
       {
         id: 'hfk-festival',
@@ -158,6 +170,11 @@ export const secties: Sectie[] = [
           'Jasper is hier nu vooral zelf mee bezig. Overdracht van de begeleiding van de essayisten.',
           'De essayist en de videoredacteur moeten samen nog een beeldplan maken.',
         ],
+        meer: [
+          'Het format: een Nederlandstalige pleitbezorger presenteert op camera een denker die een groter publiek verdient. Niet de denker zelf staat centraal maar het pleidooi van iemand die zijn of haar werk goed kent en het kan vertalen naar een breed publiek.',
+          'Roel Meijvis doet Byung-Chul Han, Ingabire doet bell hooks.',
+          'Aandachtspunten uit de scriptbegeleiding tot nu toe: het essay moet rond de twintig minuten spreektijd blijven, en kritiek op de denker hoort in één afgebakend blok in plaats van verspreid als losse voorbehouden door het hele stuk.',
+        ].join('\n\n'),
       },
     ],
   },
