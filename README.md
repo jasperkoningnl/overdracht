@@ -51,7 +51,7 @@ Per item kun je deze velden gebruiken, allemaal optioneel behalve `id` en
   titel: 'Titel van het punt',
   status: ['regel', 'regel'],       // stand van zaken
   betrokkenen: ['naam, rol'],       // wie zit erop
-  vanRoberto: ['wat er van hem verwacht wordt'],
+  openstaand: ['wat er nog moet gebeuren'],  // kopje "Openstaand"
   meer: 'langere toelichting, staat ingeklapt achter "Meer details"',
   statusOpties: toolStatusOpties,   // afwijkende knoppen, anders de standaardset
 }

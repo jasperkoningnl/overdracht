@@ -129,7 +129,7 @@ export default function ItemKaart({ item, reactie, onWijziging }: Props) {
 
       {item.status && <Regels kopje="Stand van zaken" regels={item.status} />}
       {item.betrokkenen && <Regels kopje="Betrokkenen" regels={item.betrokkenen} />}
-      {item.vanRoberto && <Regels kopje="Van Roberto" regels={item.vanRoberto} />}
+      {item.openstaand && <Regels kopje="Openstaand" regels={item.openstaand} />}
 
       {item.meer && (
         <div className="mt-5">

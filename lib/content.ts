@@ -12,7 +12,7 @@ export type Item = {
   titel: string;
   status?: string[]; // regels met feiten en stand van zaken
   betrokkenen?: string[]; // wie zit erop, en in welke rol
-  vanRoberto?: string[]; // wat er van hem verwacht wordt, met termijn
+  openstaand?: string[]; // wat er nog moet gebeuren, met termijn
   meer?: string; // langere toelichting, standaard ingeklapt achter "Meer details".
   // Meerdere alinea's? Zet ze als losse regels in een array en sluit af met
   // .join('\n\n'), dan komt er een witregel tussen.
@@ -54,7 +54,7 @@ export const secties: Sectie[] = [
           'Door Lena’s bril, Brainwash Hindsights en denkbeeld! komen nu uit het Brainwash-budget.',
           'Voor een aantal titels moet nog bepaald worden of ze uit het Brainwash-budget blijven komen of los ingetekend worden.',
         ],
-        vanRoberto: [
+        openstaand: [
           'Bepalen welke titels los ingetekend worden en welke uit het Brainwash-budget blijven komen.',
           'Structureel plan maken voor 2027.',
           'Budgetoverzicht voor de rest van 2026 opvragen bij Wilma.',
@@ -82,7 +82,7 @@ export const secties: Sectie[] = [
           'Annie Manueke, draaien, regie en montage',
           'Bibi van Troost, productie',
         ],
-        vanRoberto: [
+        openstaand: [
           'Jasper hoopt de eerste montage van de aflevering over schoonheid nog te zien. Daarna neemt Roberto over. Waar nodig kan Jasper begin september nog meekijken.',
           'Na deze vier afleveringen evalueren en besluiten of de reeks doorgaat. Als dat snel besloten wordt, kan er aansluitend in november doorgestart worden met nieuwe afleveringen. Wel eerst het budget checken.',
         ],
@@ -108,7 +108,7 @@ export const secties: Sectie[] = [
           'Lena Bril, presentatie',
           'Sofie Bongers, research',
         ],
-        vanRoberto: [
+        openstaand: [
           'Jasper heeft hier geen rol meer in. Roberto sluit aan bij de kick-off met Lena en Sofie.',
         ],
       },
@@ -129,7 +129,7 @@ export const secties: Sectie[] = [
           'Sofie Bongers en Bono Siebelink (festival), conceptontwikkeling en redactie',
           'Julia Muller en Jasper, meeontwikkeld',
         ],
-        vanRoberto: [
+        openstaand: [
           'Begin september een startmeeting beleggen met Roberto, Julia, Bono, Vanessa, Shula en Sofie, en mogelijk Sasu.',
           'Bepalen wie de montage doet.',
           'Bepalen wie de video-opname en videomontage doet: Ineke of Annie.',
@@ -151,7 +151,7 @@ export const secties: Sectie[] = [
           'We tippen vaak een route tijdens het festival, bijvoorbeeld langs de gasten die in de podcast komen.',
           'HFK staat los van Hindsights, maar beide komen in de Brainwash-nieuwsbrief en op de sociale kanalen.',
         ],
-        vanRoberto: [
+        openstaand: [
           'Uitdenken hoe HFK, het festival en Hindsights naast elkaar gecommuniceerd worden. Jasper geeft een voorzet, Roberto neemt over.',
         ],
       },
@@ -166,7 +166,7 @@ export const secties: Sectie[] = [
           'Als beide draaidagen verschuiven naar 23 en 30 september, kan Ineke van den Hurk beide draaien. Dat heeft de voorkeur. Anders moet Annie de eerste draaien.',
           'Komt uit het Brainwash-budget.',
         ],
-        vanRoberto: [
+        openstaand: [
           'Jasper is hier nu vooral zelf mee bezig. Overdracht van de begeleiding van de essayisten.',
           'De essayist en de videoredacteur moeten samen nog een beeldplan maken.',
         ],
@@ -193,7 +193,7 @@ export const secties: Sectie[] = [
           'Gaat een cursus filmen volgen.',
           'Wordt mogelijk dit najaar gedetacheerd bij de EO. Nog uit te zoeken.',
         ],
-        vanRoberto: [
+        openstaand: [
           'Voorstel: een eigen project geven, denkbeeld! ligt voor de hand, mogelijk ook de podcast Hindsights.',
           'Uitzoeken hoe het zit met de detachering bij de EO.',
         ],
@@ -205,7 +205,7 @@ export const secties: Sectie[] = [
           'Werkt nu aan diep!. Allround: draaien, montage en kleurcorrectie.',
           'Contract loopt af eind december.',
         ],
-        vanRoberto: [
+        openstaand: [
           'Voorlopig aan diep! laten werken, met ondersteuning bij denkbeeld! en of Hindsights.',
           'Uiterlijk in oktober een knoop doorhakken over het contract en een gesprek voeren.',
         ],
@@ -217,7 +217,7 @@ export const secties: Sectie[] = [
           'Nu uitbesteed aan het programma Wat blijft.',
           'Betrokken bij Door Lena’s bril en bij Hindsights.',
         ],
-        vanRoberto: [
+        openstaand: [
           'Als Door Lena’s bril wekelijks wordt, is dat mogelijk al haar volledige inzet.',
         ],
       },
@@ -229,7 +229,7 @@ export const secties: Sectie[] = [
           'Zou per september gaan studeren en een dag minder werken. Dat is teruggedraaid.',
           'Contract loopt af eind december.',
         ],
-        vanRoberto: [
+        openstaand: [
           'Overweging: Sasu in plaats van Sofie op Hindsights zetten, en mogelijk inhoudelijk betrekken bij denkbeeld!.',
         ],
       },
@@ -241,7 +241,7 @@ export const secties: Sectie[] = [
           'Kan Hindsights en het festival nog helemaal afronden.',
           'Heeft het overzicht van het resterende budget voor 2026.',
         ],
-        vanRoberto: [
+        openstaand: [
           'Zorgen voor een goede overdracht naar de nieuwe producer, en daar tijd voor inplannen.',
         ],
       },
@@ -287,7 +287,7 @@ export const secties: Sectie[] = [
           'Let’s Go Mental wordt nu bij de NPO gepubliceerd. Het idee is dat naar Brainwash te halen.',
           'Als dat gebeurt, kunnen de Shorts meer op die video’s gericht worden.',
         ],
-        vanRoberto: [
+        openstaand: [
           'Nieuwe YouTube-strategie opzetten, Thijs Molenberg hierbij betrekken.',
           'Voor het verplaatsen van Let’s Go Mental: Jacco de Wit betrekken.',
         ],
@@ -296,13 +296,13 @@ export const secties: Sectie[] = [
         id: 'nieuwsbrief',
         titel: 'Nieuwsbrief',
         status: ['Wordt gemaakt in Ternair.', 'Er moet een heel nieuw idee voor komen.'],
-        vanRoberto: ['Yonah hierbij betrekken, en ook Sofie en Sasu een rol geven.'],
+        openstaand: ['Yonah hierbij betrekken, en ook Sofie en Sasu een rol geven.'],
       },
       {
         id: 'podcast',
         titel: 'Podcast',
         status: ['Ligt nu stil, krijgt met Door Lena’s bril en Hindsights nieuw leven.'],
-        vanRoberto: [
+        openstaand: [
           'Besluiten of alles onder de Brainwash-podcastfeed gepubliceerd wordt. Dat is logisch als Brainwash de hub is, maar het is nog niet besloten.',
         ],
       },
@@ -313,7 +313,7 @@ export const secties: Sectie[] = [
           'Jasper doet er weinig mee. Het is nu een verzameling onderwerpen en er zit veel archief in.',
           'Draait op Prepr.',
         ],
-        vanRoberto: [
+        openstaand: [
           'Er moet een nieuw idee voor komen, waarin de verschillende merken een plek krijgen.',
         ],
       },
@@ -331,7 +331,7 @@ export const secties: Sectie[] = [
         status: [
           'Voor publicatie op Instagram, TikTok en YouTube Shorts. Onmisbaar. Er is een betaald abonnement. Tot nu toe deed de stagiair dit.',
         ],
-        vanRoberto: [
+        openstaand: [
           'Zelf toegang nemen en iemand verantwoordelijk maken voor het beheer. Sasu is een mogelijkheid.',
         ],
         statusOpties: toolStatusOpties,
@@ -342,7 +342,7 @@ export const secties: Sectie[] = [
         status: [
           'Hierin wordt tot nu toe alle video gepost om op te kunnen becommentariëren. Prettige tool, betaald abonnement.',
         ],
-        vanRoberto: ['Bij niet meer gebruiken het abonnement opzeggen.'],
+        openstaand: ['Bij niet meer gebruiken het abonnement opzeggen.'],
         statusOpties: toolStatusOpties,
       },
       {
@@ -351,7 +351,7 @@ export const secties: Sectie[] = [
         status: [
           'Gebruikte Jasper voor planning en productie. Duur, je betaalt per persoon. Jasper zit er nu als enige in.',
         ],
-        vanRoberto: ['Als het niet meer nodig is, zegt Jasper het op.'],
+        openstaand: ['Als het niet meer nodig is, zegt Jasper het op.'],
         statusOpties: toolStatusOpties,
       },
       {
@@ -380,7 +380,7 @@ export const secties: Sectie[] = [
         id: 'whatsapp',
         titel: 'WhatsApp',
         status: ['Groep met de redactie.'],
-        vanRoberto: ['Overweging om over te stappen naar Signal.'],
+        openstaand: ['Overweging om over te stappen naar Signal.'],
         statusOpties: toolStatusOpties,
       },
     ],
@@ -393,14 +393,14 @@ export const secties: Sectie[] = [
         id: 'het-theater',
         titel: 'Het theater',
         status: ['Gaat naar de opslag.'],
-        vanRoberto: [
+        openstaand: [
           'Besluiten wat ermee gebeurt als we er niets meer mee doen. Opties: aanbieden aan de bouwers (Hein), aanbieden aan theatermaker Marte Boneschansker, of afvoeren.',
         ],
       },
       {
         id: 'redacties-samenwerken',
         titel: 'Redacties laten samenwerken',
-        vanRoberto: [
+        openstaand: [
           'Overweging om HFK, Wat blijft en Brainwash meer te laten samenwerken, eventueel op één fysieke vloer. Let’s Go Mental daar mogelijk ook bij.',
         ],
       },
