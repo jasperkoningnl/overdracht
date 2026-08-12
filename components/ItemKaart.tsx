@@ -197,6 +197,29 @@ export default function ItemKaart({ item, reactie, onWijziging, sneltoetsen }: P
           </section>
         )}
 
+        {item.links && (
+          <section className="mt-6">
+            <h3 className="label">Waar je het vindt</h3>
+            <ul className="mt-2.5 flex flex-wrap gap-2">
+              {item.links.map((link) => (
+                <li key={link.url}>
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-lijn bg-white px-3.5 py-1.5 text-sm font-semibold text-paars-donker hover:border-paars"
+                  >
+                    {link.label}
+                    <span aria-hidden="true" className="text-xs text-grijs-licht">
+                      ↗
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
         {item.meer && (
           <div className="mt-6">
             <button

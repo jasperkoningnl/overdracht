@@ -7,6 +7,8 @@
 
 export type StatusOptie = { waarde: string; label: string };
 
+export type Link = { label: string; url: string };
+
 export type Item = {
   id: string; // stabiel, wordt gebruikt als item_id in de database
   titel: string;
@@ -16,6 +18,7 @@ export type Item = {
   meer?: string; // langere toelichting, standaard ingeklapt achter "Meer details".
   // Meerdere alinea's? Zet ze als losse regels in een array en sluit af met
   // .join('\n\n'), dan komt er een witregel tussen.
+  links?: Link[]; // waar de tool of het kanaal te vinden is
   statusOpties?: StatusOptie[]; // afwijkende opties, anders de standaardset
 };
 
@@ -334,6 +337,7 @@ export const secties: Sectie[] = [
         openstaand: [
           'Zelf toegang nemen en iemand verantwoordelijk maken voor het beheer. Sasu is een mogelijkheid.',
         ],
+        links: [{ label: 'app.metricool.com', url: 'https://app.metricool.com/login' }],
         statusOpties: toolStatusOpties,
       },
       {
@@ -343,6 +347,7 @@ export const secties: Sectie[] = [
           'Hierin wordt tot nu toe alle video gepost om op te kunnen becommentariëren. Prettige tool, betaald abonnement.',
         ],
         openstaand: ['Bij niet meer gebruiken het abonnement opzeggen.'],
+        links: [{ label: 'kollaborate.tv', url: 'https://www.kollaborate.tv/' }],
         statusOpties: toolStatusOpties,
       },
       {
@@ -352,6 +357,7 @@ export const secties: Sectie[] = [
           'Gebruikte Jasper voor planning en productie. Duur, je betaalt per persoon. Jasper zit er nu als enige in.',
         ],
         openstaand: ['Als het niet meer nodig is, zegt Jasper het op.'],
+        links: [{ label: 'notion.so', url: 'https://www.notion.so/' }],
         statusOpties: toolStatusOpties,
       },
       {
@@ -360,6 +366,7 @@ export const secties: Sectie[] = [
         status: [
           'Primair communicatiekanaal. Er is een eigen redactiekanaal en een feedbackkanaal, dat laatste alleen voor dingen waar nog feedback op moet komen.',
         ],
+        links: [{ label: 'teams.microsoft.com', url: 'https://teams.microsoft.com/' }],
         statusOpties: toolStatusOpties,
       },
       {
@@ -368,12 +375,14 @@ export const secties: Sectie[] = [
         status: [
           'Voor de nieuwsbrieven. Ingewikkeld in gebruik. Yonah kan ermee werken, Sofie een beetje. Jasper deed het vaak zelf.',
         ],
+        links: [{ label: 'ternair.com', url: 'https://ternair.com/' }],
         statusOpties: toolStatusOpties,
       },
       {
         id: 'prepr',
         titel: 'Prepr',
         status: ['Voor de website. Vrij makkelijk, wel even de weg leren.'],
+        links: [{ label: 'prepr.io', url: 'https://prepr.io/' }],
         statusOpties: toolStatusOpties,
       },
       {
@@ -381,6 +390,7 @@ export const secties: Sectie[] = [
         titel: 'WhatsApp',
         status: ['Groep met de redactie.'],
         openstaand: ['Overweging om over te stappen naar Signal.'],
+        links: [{ label: 'web.whatsapp.com', url: 'https://web.whatsapp.com/' }],
         statusOpties: toolStatusOpties,
       },
     ],

@@ -53,6 +53,7 @@ Per item kun je deze velden gebruiken, allemaal optioneel behalve `id` en
   betrokkenen: ['naam, rol'],       // wie zit erop
   openstaand: ['wat er nog moet gebeuren'],  // kopje "Openstaand"
   meer: 'langere toelichting, staat ingeklapt achter "Meer details"',
+  links: [{ label: 'notion.so', url: 'https://www.notion.so/' }],  // waar je het vindt
   statusOpties: toolStatusOpties,   // afwijkende knoppen, anders de standaardset
 }
 ```
