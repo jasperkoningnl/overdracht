@@ -305,6 +305,9 @@ export const secties: Sectie[] = [
         id: 'podcast',
         titel: 'Podcast',
         status: ['Ligt nu stil, krijgt met Door Lena’s bril en Hindsights nieuw leven.'],
+        links: [
+          { label: 'Feedbeheer NPO Podcast', url: 'https://podcast.npo.nl/admin/feed' },
+        ],
         openstaand: [
           'Besluiten of alles onder de Brainwash-podcastfeed gepubliceerd wordt. Dat is logisch als Brainwash de hub is, maar het is nog niet besloten.',
         ],
@@ -375,14 +378,14 @@ export const secties: Sectie[] = [
         status: [
           'Voor de nieuwsbrieven. Ingewikkeld in gebruik. Yonah kan ermee werken, Sofie een beetje. Jasper deed het vaak zelf.',
         ],
-        links: [{ label: 'ternair.com', url: 'https://ternair.com/' }],
+        links: [{ label: 'portals.ternair.com', url: 'https://portals.ternair.com/login' }],
         statusOpties: toolStatusOpties,
       },
       {
         id: 'prepr',
         titel: 'Prepr',
         status: ['Voor de website. Vrij makkelijk, wel even de weg leren.'],
-        links: [{ label: 'prepr.io', url: 'https://prepr.io/' }],
+        links: [{ label: 'auth.prepr.io', url: 'https://auth.prepr.io/' }],
         statusOpties: toolStatusOpties,
       },
       {
