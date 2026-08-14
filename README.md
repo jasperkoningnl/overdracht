@@ -39,7 +39,7 @@ downloaden. Elke sectie heeft een eigen kleurvlak, zie `lib/kleuren.ts`.
 | `/toegang`     | Eén invoerveld voor de code                                            |
 | `/`            | Alle secties met voortgang                                             |
 | `/sectie/[id]` | De punten van een sectie, met statusknoppen en een veld voor opmerking |
-| `/tijdlijn`    | Alle vaste momenten per maand, alleen lezen                            |
+| `/tijdlijn`    | Alle momenten onder elkaar, te filteren op soort en maand, alleen lezen |
 | `/overzicht`   | Alle reacties bij elkaar, alleen met de beheercode                     |
 
 Toegang loopt via een httpOnly cookie (`overdracht_rol`, 30 dagen). De codes
@@ -72,7 +72,20 @@ Let op: verander de `id` van een bestaand item niet. Die id is de sleutel in de
 database, dus bij een wijziging raakt de reactie van Roberto los van het punt.
 Titels en tekst mag je vrij aanpassen, nieuwe items toevoegen ook.
 
-De tijdlijn staat onderaan hetzelfde bestand, in `tijdlijn`.
+De tijdlijn staat onderaan hetzelfde bestand, in `tijdlijn`: per maand een lijst
+momenten.
+
+```ts
+{
+  datum: '13 september',   // optioneel, staat vet voor de regel
+  tekst: 'publicatie diep! over schoonheid',
+  soort: 'publicatie',     // 'publicatie', 'redactie' of 'overig'
+}
+```
+
+`soort` bepaalt de kleur van het streepje ervoor en het label erachter, en is
+waarop het scherm filtert. De maanden staan in de volgorde van het bestand; de
+periode links op het scherm wordt uit de eerste en laatste maand afgeleid.
 
 ## Database
 

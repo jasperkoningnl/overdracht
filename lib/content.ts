@@ -130,7 +130,7 @@ export const secties: Sectie[] = [
         betrokkenen: [
           'Shula Tas en Vanessa Ackah, presentatie',
           'Sofie Bongers en Bono Siebelink (festival), conceptontwikkeling en redactie',
-          'Julia Muller en Jasper, meeontwikkeld',
+          'Julia Muller (festival) en Jasper, meeontwikkeld',
         ],
         openstaand: [
           'Begin september een startmeeting beleggen met Roberto, Julia, Bono, Vanessa, Shula en Sofie, en mogelijk Sasu.',
@@ -154,6 +154,7 @@ export const secties: Sectie[] = [
           'We tippen vaak een route tijdens het festival, bijvoorbeeld langs de gasten die in de podcast komen.',
           'HFK staat los van Hindsights, maar beide komen in de Brainwash-nieuwsbrief en op de sociale kanalen.',
         ],
+        betrokkenen: ['Julia Muller (festival)', 'Tineke Rillaerts'],
         openstaand: [
           'Uitdenken hoe HFK, het festival en Hindsights naast elkaar gecommuniceerd worden. Jasper geeft een voorzet, Roberto neemt over.',
         ],
@@ -165,9 +166,14 @@ export const secties: Sectie[] = [
           'Visuele essays over denkers, volgens een redelijk vast format.',
           'Roel Meijvis maakt een essay over Byung-Chul Han, Sabrine Ingabire over bell hooks.',
           'Beiden schrijven nu aan hun script. De contracten met hen zijn geregeld.',
-          'Draaidata staan voorlopig op 16 september (Roel Meijvis) en 30 september (Sabrine Ingabire). Roel schuift mogelijk naar 23 september.',
-          'Als beide draaidagen verschuiven naar 23 en 30 september, kan Ineke van der Hurk beide draaien. Dat heeft de voorkeur. Anders moet Annie de eerste draaien.',
+          'De draaidag van Roel Meijvis is definitief op 23 september. Sabrine Ingabire draait op 30 september.',
+          'Nu beide draaidagen op 23 en 30 september staan, kan Ineke van der Hurk ze allebei draaien. Dat heeft de voorkeur.',
           'Komt uit het Brainwash-budget.',
+        ],
+        betrokkenen: [
+          'Wilma Verbeek, producer',
+          'Ineke van der Hurk, videoredacteur',
+          'Sasu Aghafua, redacteur',
         ],
         openstaand: [
           'Jasper is hier nu vooral zelf mee bezig. Overdracht van de begeleiding van de essayisten.',
@@ -336,6 +342,7 @@ export const secties: Sectie[] = [
         titel: 'Metricool',
         status: [
           'Voor publicatie op Instagram, TikTok en YouTube Shorts. Onmisbaar. Er is een betaald abonnement. Tot nu toe deed de stagiair dit.',
+          'Sasu en Sofie hebben toegang.',
         ],
         openstaand: [
           'Zelf toegang nemen en iemand verantwoordelijk maken voor het beheer. Sasu is een mogelijkheid.',
@@ -413,6 +420,12 @@ export const secties: Sectie[] = [
       {
         id: 'redacties-samenwerken',
         titel: 'Redacties laten samenwerken',
+        status: [
+          'Sasu werkte afgelopen zomer met Emma en Ineke aan Pride.',
+          'Sofie werkte op de redactie van Wat blijft en viel in bij Nooit meer slapen.',
+          'Ineke werkte mee aan Pride.',
+          'Nina van Wat blijft zou wel dingen voor Brainwash willen doen.',
+        ],
         openstaand: [
           'Overweging om HFK, Wat blijft en Brainwash meer te laten samenwerken, eventueel op één fysieke vloer. Let’s Go Mental daar mogelijk ook bij.',
         ],
@@ -426,55 +439,124 @@ export const secties: Sectie[] = [
   },
 ];
 
+// De tijdlijn. Elk moment heeft een soort, waarop in het scherm gefilterd wordt.
+export type TijdlijnSoort = 'publicatie' | 'redactie' | 'overig';
+
+export type TijdlijnMoment = {
+  datum?: string; // 'Week van 17 augustus', staat vet voor de regel
+  tekst: string;
+  soort: TijdlijnSoort;
+};
+
 export type TijdlijnMaand = {
   maand: string;
-  punten: string[];
+  momenten: TijdlijnMoment[];
 };
+
+export const tijdlijnSoorten: { waarde: TijdlijnSoort; label: string }[] = [
+  { waarde: 'publicatie', label: 'Publicaties' },
+  { waarde: 'redactie', label: 'Redactie' },
+  { waarde: 'overig', label: 'Overig' },
+];
 
 export const tijdlijn: TijdlijnMaand[] = [
   {
     maand: 'Augustus',
-    punten: [
-      'Draaidagen diep!, vier afleveringen',
-      'Week van 17 augustus: kick-off Door Lena’s bril, exacte dag nog niet bekend',
+    momenten: [
+      { tekst: 'Draaidagen diep!, vier afleveringen', soort: 'overig' },
+      {
+        datum: 'Week van 17 augustus',
+        tekst: 'kick-off Door Lena’s bril, exacte dag nog niet bekend',
+        soort: 'overig',
+      },
     ],
   },
   {
     maand: 'September',
-    punten: [
-      'Begin september: startmeeting Brainwash Hindsights met Roberto, Julia, Bono, Vanessa, Shula en Sofie, datum nog te plannen',
-      'Begin september: Jasper kan nog meekijken bij de montage van diep!',
-      'September: Ineke trouwt en heeft een week vakantie',
-      '13 september: publicatie diep! over schoonheid',
-      '16 september: draaidag denkbeeld! met Roel Meijvis, schuift mogelijk naar 23 september',
-      '27 september: publicatie diep! over tijd',
-      '30 september: draaidag denkbeeld! met Sabrine Ingabire',
+    momenten: [
+      {
+        datum: 'Begin september',
+        tekst:
+          'startmeeting Brainwash Hindsights met Roberto, Julia, Bono, Vanessa, Shula en Sofie, datum nog te plannen',
+        soort: 'overig',
+      },
+      {
+        datum: 'Begin september',
+        tekst: 'Jasper kan nog meekijken bij de montage van diep!',
+        soort: 'overig',
+      },
+      {
+        datum: 'September',
+        tekst: 'Ineke trouwt en heeft een week vakantie',
+        soort: 'redactie',
+      },
+      {
+        datum: '13 september',
+        tekst: 'publicatie diep! over schoonheid',
+        soort: 'publicatie',
+      },
+      {
+        datum: '23 september',
+        tekst: 'draaidag denkbeeld! met Roel Meijvis',
+        soort: 'overig',
+      },
+      { datum: '27 september', tekst: 'publicatie diep! over tijd', soort: 'publicatie' },
+      {
+        datum: '30 september',
+        tekst: 'draaidag denkbeeld! met Sabrine Ingabire',
+        soort: 'overig',
+      },
     ],
   },
   {
     maand: 'Oktober',
-    punten: [
-      '11 oktober: publicatie diep! over nostalgie',
-      'Uiterlijk oktober: besluit over het contract van Annie',
-      '25 oktober: publicatie diep! over gokken',
-      '30 oktober: opname Het Filosofisch Kwintet aan de vooravond van het festival, datum afgeleid, verifiëren',
-      '31 oktober en 1 november: Brainwash Festival, opnames Hindsights',
+    momenten: [
+      {
+        datum: '11 oktober',
+        tekst: 'publicatie diep! over nostalgie',
+        soort: 'publicatie',
+      },
+      {
+        datum: 'Uiterlijk oktober',
+        tekst: 'besluit over het contract van Annie',
+        soort: 'redactie',
+      },
+      { datum: '25 oktober', tekst: 'publicatie diep! over gokken', soort: 'publicatie' },
+      {
+        datum: '30 oktober',
+        tekst:
+          'opname Het Filosofisch Kwintet aan de vooravond van het festival, datum afgeleid, verifiëren',
+        soort: 'overig',
+      },
+      {
+        datum: '31 oktober en 1 november',
+        tekst: 'Brainwash Festival, opnames Hindsights',
+        soort: 'overig',
+      },
     ],
   },
   {
     maand: 'November',
-    punten: [
-      'Een tot twee weken na het festival: publicatie Hindsights, acht afleveringen in twee weken',
-      'Wilma stopt in de praktijk',
-      'Mogelijke doorstart diep! met nieuwe afleveringen, mits tijdig besloten en budget beschikbaar',
+    momenten: [
+      {
+        datum: 'Een tot twee weken na het festival',
+        tekst: 'publicatie Hindsights, acht afleveringen in twee weken',
+        soort: 'publicatie',
+      },
+      { tekst: 'Wilma stopt in de praktijk', soort: 'redactie' },
+      {
+        tekst:
+          'Mogelijke doorstart diep! met nieuwe afleveringen, mits tijdig besloten en budget beschikbaar',
+        soort: 'overig',
+      },
     ],
   },
   {
     maand: 'December',
-    punten: [
-      'Einde contract Annie',
-      'Einde contract Sasu',
-      'Formeel einde dienstverband Wilma',
+    momenten: [
+      { tekst: 'Einde contract Annie', soort: 'redactie' },
+      { tekst: 'Einde contract Sasu', soort: 'redactie' },
+      { tekst: 'Formeel einde dienstverband Wilma', soort: 'redactie' },
     ],
   },
 ];
