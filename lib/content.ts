@@ -341,7 +341,10 @@ export const secties: Sectie[] = [
         id: 'metricool',
         titel: 'Metricool',
         status: [
-          'Voor publicatie op Instagram, TikTok en YouTube Shorts. Onmisbaar. Er is een betaald abonnement. Tot nu toe deed de stagiair dit.',
+          'Voor publicatie op Instagram, TikTok en YouTube Shorts.',
+          'Onmisbaar.',
+          'Er is een betaald abonnement.',
+          'Tot nu toe deed de stagiair dit.',
           'Sasu en Sofie hebben toegang.',
         ],
         openstaand: [
@@ -354,7 +357,8 @@ export const secties: Sectie[] = [
         id: 'kollaborate',
         titel: 'Kollaborate',
         status: [
-          'Hierin wordt tot nu toe alle video gepost om op te kunnen becommentariëren. Prettige tool, betaald abonnement.',
+          'Hierin wordt tot nu toe alle video gepost om op te kunnen becommentariëren.',
+          'Prettige tool, betaald abonnement.',
         ],
         openstaand: ['Bij niet meer gebruiken het abonnement opzeggen.'],
         links: [{ label: 'kollaborate.tv', url: 'https://www.kollaborate.tv/' }],
@@ -364,7 +368,9 @@ export const secties: Sectie[] = [
         id: 'notion',
         titel: 'Notion',
         status: [
-          'Gebruikte Jasper voor planning en productie. Duur, je betaalt per persoon. Jasper zit er nu als enige in.',
+          'Gebruikte Jasper voor planning en productie.',
+          'Duur, je betaalt per persoon.',
+          'Jasper zit er nu als enige in.',
         ],
         openstaand: ['Als het niet meer nodig is, zegt Jasper het op.'],
         links: [{ label: 'notion.so', url: 'https://www.notion.so/' }],
@@ -374,7 +380,9 @@ export const secties: Sectie[] = [
         id: 'teams',
         titel: 'Teams',
         status: [
-          'Primair communicatiekanaal. Er is een eigen redactiekanaal en een feedbackkanaal, dat laatste alleen voor dingen waar nog feedback op moet komen.',
+          'Primair communicatiekanaal.',
+          'Er is een eigen redactiekanaal en een feedbackkanaal.',
+          'Het feedbackkanaal is alleen voor dingen waar nog feedback op moet komen.',
         ],
         links: [{ label: 'teams.microsoft.com', url: 'https://teams.microsoft.com/' }],
         statusOpties: toolStatusOpties,
@@ -383,7 +391,10 @@ export const secties: Sectie[] = [
         id: 'ternair',
         titel: 'Ternair',
         status: [
-          'Voor de nieuwsbrieven. Ingewikkeld in gebruik. Yonah kan ermee werken, Sofie een beetje. Jasper deed het vaak zelf.',
+          'Voor de nieuwsbrieven.',
+          'Ingewikkeld in gebruik.',
+          'Yonah kan ermee werken, Sofie een beetje.',
+          'Jasper deed het vaak zelf.',
         ],
         links: [{ label: 'portals.ternair.com', url: 'https://portals.ternair.com/login' }],
         statusOpties: toolStatusOpties,
@@ -391,7 +402,7 @@ export const secties: Sectie[] = [
       {
         id: 'prepr',
         titel: 'Prepr',
-        status: ['Voor de website. Vrij makkelijk, wel even de weg leren.'],
+        status: ['Voor de website.', 'Vrij makkelijk, wel even de weg leren.'],
         links: [{ label: 'auth.prepr.io', url: 'https://auth.prepr.io/' }],
         statusOpties: toolStatusOpties,
       },
