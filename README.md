@@ -32,6 +32,10 @@ keuzeblok. Pijltoetsen lopen door de deck, 1, 2 en 3 kiezen een status.
 Het font is Archivo, zelf gehost in `public/fonts` zodat de build niets hoeft te
 downloaden. Elke sectie heeft een eigen kleurvlak, zie `lib/kleuren.ts`.
 
+De favicon is het kanaalicoon van Brainwash en staat als url in `app/layout.tsx`;
+de browser haalt hem daar rechtstreeks op. Wil je het bestand meeleveren, zet het
+dan als `public/favicon.png` neer en maak van de url `/favicon.png`.
+
 ## Schermen
 
 | Route          | Wat je ziet                                                            |
