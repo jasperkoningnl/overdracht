@@ -120,6 +120,12 @@ export const secties: Sectie[] = [
         openstaand: [
           'Jasper heeft hier geen rol meer in. Roberto sluit aan bij de kick-off met Lena en Sofie.',
         ],
+        links: [
+          {
+            label: 'Conceptdocument Door Lena’s bril',
+            url: 'https://docs.google.com/presentation/d/1VWqb09xZjs3GPZhpk1c5nDP-WykF1pbr/edit?usp=sharing&ouid=109027753217000616438&rtpof=true&sd=true',
+          },
+        ],
       },
       {
         id: 'hindsights',
