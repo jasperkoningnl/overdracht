@@ -18,7 +18,7 @@ export type Item = {
   meer?: string; // langere toelichting, standaard ingeklapt achter "Meer details".
   // Meerdere alinea's? Zet ze als losse regels in een array en sluit af met
   // .join('\n\n'), dan komt er een witregel tussen.
-  links?: Link[]; // waar de tool of het kanaal te vinden is
+  links?: Link[]; // waar je het vindt: een conceptdocument, de tool of het kanaal
   statusOpties?: StatusOptie[]; // afwijkende opties, anders de standaardset
 };
 
@@ -61,6 +61,12 @@ export const secties: Sectie[] = [
           'Bepalen welke titels los ingetekend worden en welke uit het Brainwash-budget blijven komen.',
           'Structureel plan maken voor 2027.',
           'Budgetoverzicht voor de rest van 2026 opvragen bij Wilma.',
+        ],
+        links: [
+          {
+            label: 'Conceptdocument Brainwash',
+            url: 'https://docs.google.com/presentation/d/1y-In7weDbRBtUUyvlw48NOUPbvz334WfCJR6L4UERCM/edit?usp=sharing',
+          },
         ],
       },
     ],
@@ -138,6 +144,12 @@ export const secties: Sectie[] = [
           'Bepalen wie de video-opname en videomontage doet: Ineke of Annie.',
           'Bepalen wie de redactie draait: Sofie of Sasu.',
         ],
+        links: [
+          {
+            label: 'Conceptdocument Hindsights',
+            url: 'https://docs.google.com/presentation/d/1xDOWI95_g7JQmBbx3Wzr-Wb6F2gtvRoj/edit?usp=sharing&ouid=109027753217000616438&rtpof=true&sd=true',
+          },
+        ],
         meer: [
           'Het format draait om één vaste vraag: de gast brengt zelf een plek in die een rol heeft gespeeld in zijn of haar leven of werk, en die plek is het startpunt van het gesprek.',
           'Bij het uitnodigen is de briefing belangrijker dan de vraag zelf. Een gast die alleen een plek noemt levert een beschouwing op; een gast die een concrete herinnering of scène bij die plek meebrengt levert een aflevering op. Vraag dus expliciet om die herinnering.',
@@ -178,6 +190,12 @@ export const secties: Sectie[] = [
         openstaand: [
           'Jasper is hier nu vooral zelf mee bezig. Overdracht van de begeleiding van de essayisten.',
           'De essayist en de videoredacteur moeten samen nog een beeldplan maken.',
+        ],
+        links: [
+          {
+            label: 'Conceptdocument denkbeeld!',
+            url: 'https://docs.google.com/presentation/d/1pr0XZcuqYFUyfsGKnYkO2-kkr-wEOSPshBIFgbaEAiU/edit?usp=sharing',
+          },
         ],
         meer: [
           'Het format: een Nederlandstalige pleitbezorger presenteert op camera een denker die een groter publiek verdient. Niet de denker zelf staat centraal maar het pleidooi van iemand die zijn of haar werk goed kent en het kan vertalen naar een breed publiek.',
